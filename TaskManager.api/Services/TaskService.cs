@@ -31,7 +31,8 @@ public class TaskService : ITaskService
         var task = new TaskItem
         {
             Title = dto.Title,
-            Description = dto.Description
+            Description = dto.Description,
+            Priority = dto.Priority
         };
 
         _context.Tasks.Add(task);
@@ -47,6 +48,7 @@ public class TaskService : ITaskService
         task.Title = dto.Title;
         task.Description = dto.Description;
         task.IsCompleted = dto.IsCompleted;
+        task.Priority = dto.Priority;
         task.UpdatedAt = DateTime.UtcNow;
 
         if (dto.IsCompleted && task.CompletedAt == null)
